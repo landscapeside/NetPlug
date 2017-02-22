@@ -1,0 +1,7 @@
+<resources>
+
+  <style name="TextView.Suit">
+    <item name="android:textColor">@color/colorTextWhite</item>
+  </style>
+
+</resources>
