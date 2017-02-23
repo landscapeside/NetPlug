@@ -3,6 +3,7 @@ package com.landscape.netplug.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.landscape.mvp.BaseFragment;
+import com.landscape.netplug.R;
 import com.landscape.netplug.mvp.view.LogContentView;
 
 /**
@@ -11,7 +12,7 @@ import com.landscape.netplug.mvp.view.LogContentView;
 
 public class LogContentFragment extends BaseFragment implements LogContentView {
   @Override protected int layoutRes() {
-    return 0;
+    return R.layout.fragment_log_content;
   }
 
   @Override protected void onReady(@Nullable Bundle savedInstanceState) {
