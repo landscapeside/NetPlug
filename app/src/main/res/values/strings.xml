@@ -1,0 +1,9 @@
+<resources>
+  <string name="app_name">NetPlug</string>
+  <string name="suit_total">套装数:{number}</string>
+
+  <string name="log_scroll_top">置顶</string>
+  <string name="log_scroll_bottom">置底</string>
+  <string name="log_clear">清空</string>
+  <string name="log_share">分享</string>
+</resources>

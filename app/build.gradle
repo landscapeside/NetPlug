@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+def versionMajor = 0
+def versionMinor = 0
+def versionBuild = 1
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+  defaultConfig {
+    applicationId "com.landscape.netplug"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode versionMajor * 100 + versionMinor * 10 + versionBuild
+    versionName "${versionMajor}.${versionMinor}.${versionBuild}"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  androidTestCompile(rootProject.ext.espresso, {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
+  compile rootProject.ext.appcompatV7
+  compile rootProject.ext.supportV4
+  compile rootProject.ext.supportDesign
+  compile rootProject.ext.recyclerview
+  compile rootProject.ext.annotations
+  compile rootProject.ext.butterknife
+  annotationProcessor rootProject.ext.butterknifeCompiler
+  compile rootProject.ext.logger
+  compile rootProject.ext.phrase
+  compile rootProject.ext.dagger
+  annotationProcessor rootProject.ext.daggerCompiler
+  compile rootProject.ext.rxJava
+  compile rootProject.ext.rxAndroid
+  compile rootProject.ext.rxPreferences
+  compile rootProject.ext.okHttp
+  compile rootProject.ext.okHttpLoggingInterceptor
+  compile rootProject.ext.retrofit
+  compile rootProject.ext.retrofitAdapterRxJava
+  compile rootProject.ext.retrofitConverterMoshi
+
+
+
+  testCompile rootProject.ext.junit
+}
