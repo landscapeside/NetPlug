@@ -1,4 +1,13 @@
+
 ext{
+  /**
+   * project version conf
+   * */
+  versionMajor = 0
+  versionMinor = 0
+  versionBuild = 1
+
+
   compileSdkVersion = 24
   buildToolsVersion = "23.0.3"
   minSdkVersion = 14
@@ -13,8 +22,8 @@ ext{
   /**
    * general app support
    * */
-  appcompatV7 = 'com.android.support:appcompat-v7:25.1.0'
-  supportV4 = 'com.android.support:support-v4:25.1.0'
+  appcompatV7 = 'com.android.support:appcompat-v7:23.3.0'
+  supportV4 = 'com.android.support:support-v4:23.3.0'
   supportDesign = 'com.android.support:design:23.3.0'
   recyclerview = 'com.android.support:recyclerview-v7:25.1.0'
   annotations = 'com.android.support:support-annotations:25.1.0'
