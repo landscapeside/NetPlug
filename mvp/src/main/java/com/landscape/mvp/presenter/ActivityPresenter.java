@@ -9,6 +9,6 @@ import com.landscape.mvp.BaseView;
 
 public abstract class ActivityPresenter<T extends BaseView> extends RxPresenter<T> {
 
-  protected abstract void attachToActivity(BaseActivity activity);
+  public abstract void attachToActivity(BaseActivity activity);
 
 }

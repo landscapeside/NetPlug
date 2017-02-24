@@ -1,5 +1,7 @@
+ext {
 
-ext{
+  VRxlifecycle = '1.0'
+
   /**
    * project version conf
    * */
@@ -13,6 +15,11 @@ ext{
   minSdkVersion = 14
   targetSdkVersion = 23
 
+  VSupportSdk = '23.3.0'
+  retrofitVer = '2.0.2'
+  daggerVer = '2.6'
+  okHttpVer = '3.4.1'
+
   /**
    * general test config
    * */
@@ -22,11 +29,11 @@ ext{
   /**
    * general app support
    * */
-  appcompatV7 = 'com.android.support:appcompat-v7:23.3.0'
-  supportV4 = 'com.android.support:support-v4:23.3.0'
-  supportDesign = 'com.android.support:design:23.3.0'
-  recyclerview = 'com.android.support:recyclerview-v7:25.1.0'
-  annotations = 'com.android.support:support-annotations:25.1.0'
+  appcompatV7 = "com.android.support:appcompat-v7:${VSupportSdk}"
+  supportV4 = "com.android.support:support-v4:${VSupportSdk}"
+  supportDesign = "com.android.support:design:${VSupportSdk}"
+  recyclerview = "com.android.support:recyclerview-v7:${VSupportSdk}"
+  annotations = "com.android.support:support-annotations:${VSupportSdk}"
 
   /**
    * json convert
@@ -52,8 +59,8 @@ ext{
   /**
    * dagger
    * */
-  dagger = 'com.google.dagger:dagger:2.6'
-  daggerCompiler = 'com.google.dagger:dagger-compiler:2.6'
+  dagger = "com.google.dagger:dagger:${daggerVer}"
+  daggerCompiler = "com.google.dagger:dagger-compiler:${daggerVer}"
 
   /**
    * rx
@@ -61,15 +68,18 @@ ext{
   rxJava = 'io.reactivex:rxjava:1.1.5'
   rxAndroid = 'io.reactivex:rxandroid:1.2.0'
   rxPreferences = 'com.f2prateek.rx.preferences:rx-preferences:1.0.1'
+  rxLifecycle = "com.trello:rxlifecycle:${VRxlifecycle}"
+  rxlifecycleAndroid = "com.trello:rxlifecycle-android:${VRxlifecycle}"
+  rxlifecycleComponents = "com.trello:rxlifecycle-components:${VRxlifecycle}"
 
   /**
    * http
    * */
-  okHttp = 'com.squareup.okhttp3:okhttp:3.4.1'
-  okHttpLoggingInterceptor = 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+  okHttp = "com.squareup.okhttp3:okhttp:${okHttpVer}"
+  okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${okHttpVer}"
 
-  retrofit = 'com.squareup.retrofit2:retrofit:2.0.2'
-  retrofitAdapterRxJava = 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
-  retrofitConverterMoshi = 'com.squareup.retrofit2:converter-moshi:2.0.2'
-  retrofitMock = 'com.squareup.retrofit2:retrofit-mock:2.0.2'
+  retrofit = "com.squareup.retrofit2:retrofit:${retrofitVer}"
+  retrofitAdapterRxJava = "com.squareup.retrofit2:adapter-rxjava:${retrofitVer}"
+  retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:${retrofitVer}"
+  retrofitMock = "com.squareup.retrofit2:retrofit-mock:${retrofitVer}"
 }

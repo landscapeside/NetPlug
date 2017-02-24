@@ -3,6 +3,7 @@ package com.landscape.netplug.di.modules;
 import android.app.Application;
 import android.content.Context;
 import com.landscape.netplug.NetPlugApp;
+import com.landscape.netplug.log.LumberYard;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -25,5 +26,9 @@ import javax.inject.Singleton;
 
   @Provides @Singleton Application provideApp() {
     return application;
+  }
+
+  @Provides @Singleton LumberYard provideLumberYard(Application app) {
+    return new LumberYard(app);
   }
 }

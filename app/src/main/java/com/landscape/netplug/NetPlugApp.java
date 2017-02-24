@@ -26,4 +26,9 @@ public class NetPlugApp extends Application {
     lumberYard.cleanUp();
     Timber.plant(lumberYard.tree());
   }
+
+  public AppComponent getAppComponent() {
+    return appComponent;
+  }
 }
+

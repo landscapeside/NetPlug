@@ -1,6 +1,7 @@
 package com.landscape.mvp.utils;
 
 import android.support.annotation.AnyRes;
+import android.util.Log;
 
 /**
  * @author shun.jiang (494326656@qq.com)

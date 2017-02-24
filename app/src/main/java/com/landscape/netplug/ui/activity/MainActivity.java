@@ -1,10 +1,13 @@
 package com.landscape.netplug.ui.activity;
 
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import com.landscape.mvp.BaseActivity;
+import com.landscape.netplug.Injector;
 import com.landscape.netplug.R;
+import com.landscape.netplug.di.components.DaggerViewPresenterComponent;
+import com.landscape.netplug.log.LumberYard;
 import com.landscape.netplug.mvp.presenter.LogContentPresenter;
 import com.landscape.netplug.mvp.presenter.SuitManagerPresenter;
 import javax.inject.Inject;
@@ -18,7 +21,15 @@ public class MainActivity extends BaseActivity {
     return R.layout.activity_main;
   }
 
-  @Override protected void onReady(@Nullable Bundle savedInstanceState) {
+  @Override protected void onPrepare(@Nullable Bundle savedInstanceState) {
+    DaggerViewPresenterComponent.builder()
+        .appComponent(Injector.obtain(getApplicationContext()))
+        .build()
+        .inject(this);
+  }
 
+  @Override protected void onReady(@Nullable Bundle savedInstanceState) {
+    logContentPresenter.attachToActivity(this);
+    suitManagerPresenter.attachToActivity(this);
   }
 }

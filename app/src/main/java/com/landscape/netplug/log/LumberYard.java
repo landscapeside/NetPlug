@@ -18,7 +18,6 @@ import rx.Subscriber;
 import rx.subjects.PublishSubject;
 import timber.log.Timber;
 
-@Singleton
 public final class LumberYard {
   private static final int BUFFER_SIZE = 200;
 
@@ -27,7 +26,7 @@ public final class LumberYard {
   private final Deque<Entry> entries = new ArrayDeque<>(BUFFER_SIZE + 1);
   private final PublishSubject<Entry> entrySubject = PublishSubject.create();
 
-  @Inject public LumberYard(Application app) {
+  public LumberYard(Application app) {
     this.app = app;
   }
 

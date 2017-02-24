@@ -5,6 +5,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import com.landscape.mvp.utils.ResValidCheck;
 
 /**
@@ -13,8 +14,8 @@ import com.landscape.mvp.utils.ResValidCheck;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-  @Override public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-    super.onCreate(savedInstanceState, persistentState);
+  @Override public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
     if (ResValidCheck.isValid(layoutRes())) {
       setContentView(layoutRes());
       onPrepare(savedInstanceState);

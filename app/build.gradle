@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
@@ -13,6 +14,9 @@ android {
         rootProject.ext.versionBuild
     versionName "${rootProject.ext.versionMajor}.${rootProject.ext.versionMinor}.${rootProject.ext.versionBuild}"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//    jackOptions {
+//      enabled true
+//    }
   }
   buildTypes {
     release {
@@ -20,12 +24,16 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+  compileOptions {
+    targetCompatibility JavaVersion.VERSION_1_8
+    sourceCompatibility JavaVersion.VERSION_1_8
+  }
 }
 
 dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
   androidTestCompile(rootProject.ext.espresso, {
-    exclude group: 'com.android.support', module: 'support-annotations'
+    exclude group: 'com.google.code.findbugs'
   })
   compile rootProject.ext.appcompatV7
   compile rootProject.ext.supportV4
@@ -42,7 +50,11 @@ dependencies {
   compile rootProject.ext.retrofitAdapterRxJava
   compile rootProject.ext.retrofitConverterMoshi
   testCompile rootProject.ext.junit
+  compile rootProject.ext.butterknife
+  annotationProcessor rootProject.ext.butterknifeCompiler
   compile project(':mvp')
   compile project(':syntaxcore')
-  compile project(':utils')
+  compile (project(':utils')){
+    exclude module: 'support-v4'
+  }
 }

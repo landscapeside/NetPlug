@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.landscape.netplug.NetPlugApp;
 import com.landscape.netplug.di.modules.AppModule;
+import com.landscape.netplug.log.LumberYard;
 import dagger.Component;
 import javax.inject.Singleton;
 
@@ -16,6 +17,8 @@ import javax.inject.Singleton;
   Context appContext();
 
   Application app();
+
+  LumberYard lumbserYard();
 
   void inject(NetPlugApp application);
 

@@ -10,15 +10,23 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.landscape.mvp.utils.ResValidCheck;
+import com.trello.rxlifecycle.LifecycleTransformer;
+import com.trello.rxlifecycle.android.FragmentEvent;
+import com.trello.rxlifecycle.components.support.RxFragment;
+import javax.annotation.Nonnull;
+import rx.Observable;
+import rx.Scheduler;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * @author shun.jiang (494326656@qq.com)
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends RxFragment implements BaseView {
 
   protected View rootView;
-  private Unbinder unbinder;
+  protected Unbinder unbinder;
   private boolean prepare = false;
 
   @Nullable @Override
@@ -68,5 +76,28 @@ public abstract class BaseFragment extends Fragment {
 
   protected boolean isLazy() {
     return false;
+  }
+
+  @Nonnull @Override public Observable<FragmentEvent> delegateLifecycle() {
+    return lifecycle().compose(new Observable.Transformer<FragmentEvent, FragmentEvent>() {
+      @Override
+      public Observable<FragmentEvent> call(Observable<FragmentEvent> fragmentEventObservable) {
+        return fragmentEventObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+      }
+    });
+  }
+
+  @Nonnull @Override public <T> LifecycleTransformer<T> delegateBindToLifecycle() {
+    return bindToLifecycle();
+  }
+
+  @Nonnull @Override
+  public <T> LifecycleTransformer<T> delegateBindUntilEvent(@Nonnull FragmentEvent event) {
+    return bindUntilEvent(event);
+  }
+
+  @Override public void onDetach() {
+    unbinder.unbind();
+    super.onDetach();
   }
 }
