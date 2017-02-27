@@ -61,6 +61,7 @@ ext {
    * */
   dagger = "com.google.dagger:dagger:${daggerVer}"
   daggerCompiler = "com.google.dagger:dagger-compiler:${daggerVer}"
+  javaxInject = 'javax.inject:javax.inject:1'
 
   /**
    * rx

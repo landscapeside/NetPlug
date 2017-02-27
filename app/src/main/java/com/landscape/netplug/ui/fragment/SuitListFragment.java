@@ -2,6 +2,7 @@ package com.landscape.netplug.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import butterknife.OnClick;
 import com.landscape.mvp.BaseFragment;
 import com.landscape.netplug.R;
 import com.landscape.netplug.mvp.view.SuitManagerView;
@@ -21,7 +22,8 @@ public class SuitListFragment extends BaseFragment implements SuitManagerView {
 
   }
 
-  @Nonnull @Override public <T> Observable<T> userActionObservable() {
-    return null;
+  @OnClick(R.id.iv_add_suit)
+  public void addSuit() {
+
   }
 }

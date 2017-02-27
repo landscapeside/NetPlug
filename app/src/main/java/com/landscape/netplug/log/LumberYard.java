@@ -55,6 +55,10 @@ public final class LumberYard {
     return entrySubject;
   }
 
+  public void clear() {
+    entries.clear();
+  }
+
   /**  Save the current logs to disk. */
   public Observable<File> save() {
     return Observable.create(new Observable.OnSubscribe<File>() {

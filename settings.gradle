@@ -1,1 +1,1 @@
-include ':app', ':syntaxcore', ':mvp', ':utils'
+include ':app', ':syntaxcore', ':mvp', ':utils', ':suit'

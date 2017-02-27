@@ -21,13 +21,11 @@ android {
 
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
+  androidTestCompile(rootProject.ext.espresso, {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
   compile rootProject.ext.appcompatV7
-  compile rootProject.ext.supportV4
-  compile rootProject.ext.rxJava
-  compile rootProject.ext.rxAndroid
-  compile rootProject.ext.butterknife
-  annotationProcessor rootProject.ext.butterknifeCompiler
-  compile rootProject.ext.rxLifecycle
-  compile rootProject.ext.rxlifecycleAndroid
-  compile rootProject.ext.rxlifecycleComponents
+  testCompile rootProject.ext.junit
+  compile rootProject.ext.rxPreferences
+  compile project(':syntaxcore')
 }

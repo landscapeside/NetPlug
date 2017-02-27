@@ -30,6 +30,12 @@ public class LogAdapter extends BindableAdapter<Entry> implements Action1<Entry>
 
   public void setLogs(List<Entry> logs) {
     this.logs = new ArrayList<>(logs);
+    notifyDataSetChanged();
+  }
+
+  public void clear() {
+    logs.clear();
+    notifyDataSetChanged();
   }
 
   @Override public void call(Entry entry) {

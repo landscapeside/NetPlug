@@ -18,16 +18,19 @@ import rx.Observable;
 import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+import rx.subjects.BehaviorSubject;
 
 /**
  * @author shun.jiang (494326656@qq.com)
  */
 
-public abstract class BaseFragment extends RxFragment implements BaseView {
+public abstract class BaseFragment<A> extends RxFragment implements BaseView <A>{
 
   protected View rootView;
   protected Unbinder unbinder;
   private boolean prepare = false;
+
+  protected final BehaviorSubject<A> actionSubject = BehaviorSubject.create();
 
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -94,6 +97,10 @@ public abstract class BaseFragment extends RxFragment implements BaseView {
   @Nonnull @Override
   public <T> LifecycleTransformer<T> delegateBindUntilEvent(@Nonnull FragmentEvent event) {
     return bindUntilEvent(event);
+  }
+
+  @Nonnull @Override public Observable<A> userActionObservable() {
+    return actionSubject.asObservable().compose(this.<A>bindUntilEvent(FragmentEvent.DETACH));
   }
 
   @Override public void onDetach() {

@@ -53,8 +53,8 @@ dependencies {
   compile rootProject.ext.butterknife
   annotationProcessor rootProject.ext.butterknifeCompiler
   compile project(':mvp')
-  compile project(':syntaxcore')
   compile (project(':utils')){
     exclude module: 'support-v4'
   }
+  compile project(':suit')
 }

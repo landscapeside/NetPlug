@@ -11,7 +11,7 @@ import rx.Observable;
  * @author shun.jiang (494326656@qq.com)
  */
 
-public interface BaseView {
+public interface BaseView<A> {
 
   @Nonnull @CheckReturnValue Observable<FragmentEvent> delegateLifecycle();
 
@@ -40,5 +40,5 @@ public interface BaseView {
    * @param <T> specify action types
    * @return
    */
-  @Nonnull @CheckReturnValue <T> Observable<T> userActionObservable();
+  @Nonnull @CheckReturnValue Observable<A> userActionObservable();
 }

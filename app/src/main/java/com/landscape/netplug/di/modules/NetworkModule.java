@@ -21,11 +21,7 @@ import timber.log.Timber;
         .readTimeout(30, TimeUnit.SECONDS);
 
     HttpLoggingInterceptor loggingInterceptor =
-        new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-          @Override public void log(String message) {
-            Timber.i(message);
-          }
-        });
+        new HttpLoggingInterceptor(message -> Timber.i(message));
     loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
     builder.addInterceptor(loggingInterceptor);
 

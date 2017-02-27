@@ -7,4 +7,7 @@ import com.landscape.mvp.BaseView;
  */
 
 public interface SuitManagerView extends BaseView {
+
+
+
 }
